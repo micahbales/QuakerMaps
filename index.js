@@ -13,6 +13,7 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
+    animation: google.maps.Animation.DROP,
     title: 'This is Home'
   });
 

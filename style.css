@@ -1,8 +1,22 @@
+@import 'https://fonts.googleapis.com/css?family=Mirza|Open+Sans';
+
 #map {
  width: 50%;
  height: 400px;
  margin: 0 auto;
 }
-h3 {
+
+h2 {
+ font-family: Mirza, sans-serif;
+ font-size: 3em;
  text-align: center;
+ margin: 0;
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  margin: -15px 0 10px;
+  font-style: italic;
 }
