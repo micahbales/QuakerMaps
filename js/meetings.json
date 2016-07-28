@@ -1,0 +1,16 @@
+{ "meetings":
+  [
+    {
+      "name" : "Friends Meeting of Washington",
+      "address" : "2111 Florida Ave. NW, Washington, DC 20008"
+    },
+    {
+      "name" : "Friends of Jesus DC Metro Area",
+      "address" : "515 E Capitol St. SE, Washington, DC 20003"
+    },
+    {
+      "name" : "Takoma Park Preparative Meeting",
+      "address" : "7117 Maple Avenue, Takoma Park, MD 20912"
+    }
+  ]
+}

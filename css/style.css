@@ -10,13 +10,13 @@ h2 {
  font-family: Mirza, sans-serif;
  font-size: 3em;
  text-align: center;
- margin: 0;
+ margin: 0px;
 }
 
 h4 {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.2em;
   text-align: center;
-  margin: -15px 0 16px;
+  margin: -10px 0 16px;
   font-style: italic;
 }
