@@ -2,15 +2,37 @@
   [
     {
       "name" : "Friends Meeting of Washington",
-      "address" : "2111 Florida Ave. NW, Washington, DC 20008"
+      "address" : "2111 Florida Ave. NW, Washington, DC 20008",
+      "phone" : "(202)483-3310",
+      "website" : "www.quakersdc.org",
+      "email" : "admin@quakersdc.org",
+      "ym" : "Baltimore YM",
+      "time" : "9:00am, 10:30am, 6:00pm",
+      "style" : "Unprogrammed",
+      "branch" : "Friends General Conference, Friends United Meeting"
+
     },
     {
       "name" : "Friends of Jesus DC Metro Area",
-      "address" : "515 E Capitol St. SE, Washington, DC 20003"
+      "address" : "515 E Capitol St. SE, Washington, DC 20003",
+      "phone" : "(202)670-0429",
+      "website" : "dcmetro.friendsofjesusfellowship.org",
+      "email" : "contact@dcmetro.fojf.org",
+      "ym" : "Friends Of Jesus Fellowship",
+      "time" : "7:30pm Tuesdays",
+      "style" : "Semi-programmed",
+      "branch" : "Independent"
     },
     {
       "name" : "Takoma Park Preparative Meeting",
-      "address" : "7117 Maple Avenue, Takoma Park, MD 20912"
+      "address" : "7117 Maple Avenue, Takoma Park, MD 20912",
+      "phone" : "(301)270-4239",
+      "website" : "takomapark.quaker.org",
+      "email" : "unknown",
+      "ym" : "Baltimore YM",
+      "time" : "10:00am",
+      "style" : "Unprogrammed",
+      "branch" : "Friends General Conference, Friends United Meeting"
     }
   ]
 }
