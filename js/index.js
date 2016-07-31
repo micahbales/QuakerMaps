@@ -1,13 +1,22 @@
-var myLatLng = {lat: 38.9072, lng: -77.0369};
+var myLatLng = {lat: 38.935, lng: -77.025};
 var icon = 'mtg.png';
 
 function initMap() {
+  var mapStyles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
+  var styledMap = new google.maps.StyledMapType(mapStyles, {name : "Styled Map"});
 
   var mapDiv = document.getElementById('map');
-  var map = new google.maps.Map(mapDiv, {
+  var mapOptions = {
       center: myLatLng,
-      zoom: 11
-    });
+      zoom: 12,
+      mapTypeControlOptions: {
+        mapTypeIds: ['roadmap', 'map_style']
+      }
+    };
+  var map = new google.maps.Map(mapDiv, mapOptions);
+
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
 
   $.getJSON('js/meetings.json', (meeting) => {
 
