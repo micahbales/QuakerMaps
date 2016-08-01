@@ -1,5 +1,4 @@
-{ "meetings":
-  [
+[
     {
       "name" : "Friends Meeting of Washington",
       "address" : "2111 Florida Ave. NW, Washington, DC 20008",
@@ -35,4 +34,3 @@
       "branch" : "Friends General Conference, Friends United Meeting"
     }
   ]
-}
