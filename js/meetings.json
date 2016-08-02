@@ -2,6 +2,8 @@
     {
       "name" : "Friends Meeting of Washington",
       "address" : "2111 Florida Ave. NW, Washington, DC 20008",
+      "state" : "DC",
+      "zip" : "20008",
       "phone" : "(202)483-3310",
       "website" : "www.quakersdc.org",
       "email" : "admin@quakersdc.org",
@@ -14,6 +16,8 @@
     {
       "name" : "Friends of Jesus DC Metro Area",
       "address" : "515 E Capitol St. SE, Washington, DC 20003",
+      "state" : "DC",
+      "zip" : "20003",
       "phone" : "(202)670-0429",
       "website" : "dcmetro.friendsofjesusfellowship.org",
       "email" : "contact@dcmetro.fojf.org",
@@ -25,6 +29,8 @@
     {
       "name" : "Takoma Park Preparative Meeting",
       "address" : "7117 Maple Avenue, Takoma Park, MD 20912",
+      "state" : "MD",
+      "zip" : "20912",
       "phone" : "(301)270-4239",
       "website" : "takomapark.quaker.org",
       "email" : "unknown email",

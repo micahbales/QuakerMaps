@@ -8,7 +8,6 @@ function initMap() {
 
     var mapDiv = document.getElementById('map');
     var mapOptions = {
-        zoom: 12,
         mapTypeControlOptions: {
           mapTypeIds: ['roadmap', 'map_style']
         }
