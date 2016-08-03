@@ -2,7 +2,7 @@ function initMap() {
 
   var icon = 'mtg.png';
 
-  $.getJSON('js/meetings.json', (meetings) => {
+  $.getJSON('js/meetings.json', function (meetings) {
 
     var bounds = new google.maps.LatLngBounds();
 
@@ -14,11 +14,11 @@ function initMap() {
       };
     var map = new google.maps.Map(mapDiv, mapOptions);
 
-    $.each(meetings, (key, data) => {
+    $.each(meetings, function (key, data) {
 
       var address = meetings[key]['address'].split(' ').join('+');
 
-      $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAZInx_2Z-qyDZXz2eMhSCd9xBLyeiAf7Q', (locationData) => {
+      $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAZInx_2Z-qyDZXz2eMhSCd9xBLyeiAf7Q', function (locationData) {
 
         var geolocation = locationData.results[0].geometry.location;
         var meetingName = meetings[key].name;
@@ -66,3 +66,7 @@ function initMap() {
   var styledMap = new google.maps.StyledMapType(mapStyles, {name : "Custom Syle"});
 
 };
+
+$('#nav-icon').on('click', function () {
+  $('#navbar').toggleClass('no-display');
+});
