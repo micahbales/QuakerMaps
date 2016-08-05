@@ -9,8 +9,45 @@
   <body>
 
     <div id="map"></div>
-    <img id="nav-icon" src="nav-icon.png" />
-    <div id="navbar" class="no-display"></div>
+
+    <img id="nav-icon" class="nav-icon-position clickable" src="nav-icon.png" />
+    <div id="navbar" class="no-display">
+
+      <div id="navtitle">Map By:</div>
+
+      <div id="selectors">
+
+        <div class="nav-select" id="state">
+          <h3>State</h3>
+          <form action="">
+            <select name="states">
+              <option value="any-state">Any</option>
+              <option value="DC">DC</option>
+              <option value="MD">MD</option>
+            </select>
+          </form>
+      </div>
+
+        <div class="nav-select" id="zip">
+          <h3>Zip Code</h3>
+          <form action="">
+            <input type="text" name="Zip Code"><br>
+          </form>
+        </div>
+
+        <div class="nav-select" id="ym">
+          <h3>Yearly Meeting</h3>
+          <form action="">
+            <select name="ym">
+              <option value="any-ym">Any Yearly Meeting</option>
+              <option value="Baltimore YM">Baltimore YM</option>
+              <option value="Independent">Independent</option>
+            </select>
+          </form>
+        </div>
+
+      </div>
+    </div>
 
     <script type='text/javascript' src='js/jquery-3.1.0.min.js'></script>
     <script type="text/javascript" src="js/index.js"></script>

@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Mirza|Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Arvo|Titillium+Web:900';
 
 #map {
   position:absolute;
@@ -12,6 +12,8 @@
 
 #navbar {
   background-color: #FCA604;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   position: fixed;
   top: 3%;
   right: 3%;
@@ -30,12 +32,54 @@
   z-index: 2;
 }
 
-.display {
-  display: block;
+#navtitle {
+  color: #000000;
+  font-size: 300%;
+  font-family: 'Titillium Web', sans-serif;
+  position: absolute;
+  top: 12%;
+  left: 20%;
+  width: 75%;
+}
+
+#selectors {
+  position: absolute;
+  top: 25%;
+  left: -5%;
+}
+
+.clickable {
+  cursor: hand;
+  cursor: pointer;
+}
+
+.nav-select {
+  color: #000000;
+  font-size: 150%;
+  font-weight: bold;
+  font-family: 'Arvo', sans-serif;
+  margin: 9%;
+  width: 100%;
+}
+
+.nav-select h3, .nav-select form {
+  text-align: center;
 }
 
 .no-display {
-  display:none;
+  display: none;
+}
+
+input[type=text] {
+  left: 40%;
+  width: 65%;
+}
+
+input[type=submit] {
+  padding:5px;
+  border:2px solid #ccc;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 @media (max-width: 400px) {
@@ -46,17 +90,3 @@
   }
 
 }
-
-/*@media (min-width: 700px) {
-
-  #navbar {
-    height: 450px;
-    width: 300px;
-  }
-
-  #nav-icon {
-    height: 50px;
-    width: 50px;
-  }
-
-}*/
