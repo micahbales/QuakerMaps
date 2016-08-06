@@ -1,4 +1,6 @@
-function initMap() {
+function initMap(s) {
+
+  var selector = s || "any";
 
   var icon = 'mtg.png';
 
@@ -23,6 +25,7 @@ function initMap() {
         var geolocation = locationData.results[0].geometry.location;
         var meetingName = meetings[key].name;
         var meetingAddress = meetings[key].address;
+        var meetingState = meetings[key].state;
         var meetingPhone = meetings[key].phone;
         var meetingWebsite = meetings[key].website;
         var meetingEmail = meetings[key].email;
@@ -31,30 +34,33 @@ function initMap() {
         var meetingStyle = meetings[key].style;
         var meetingBranch = meetings[key].branch;
 
-        var marker = new google.maps.Marker({
-          position: geolocation,
-          map: map,
-          animation: google.maps.Animation.DROP,
-          title: meetingName,
-          icon: icon
-        });
+        if (selector === meetingState || selector === "any") {
+          var marker = new google.maps.Marker({
+            position: geolocation,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: meetingName,
+            icon: icon
+          });
 
-        var windowContent = meetingName + "<br />" + meetingAddress + "<br />" + meetingPhone + "<br />" + meetingWebsite + "<br />" + meetingEmail + "<br />" + meetingTime;
-        var infoWindow = new google.maps.InfoWindow({
-              content: windowContent
-            });
+            var windowContent = meetingName + "<br />" + meetingAddress + "<br />" + meetingPhone + "<br />" + meetingWebsite + "<br />" + meetingEmail + "<br />" + meetingTime;
+            var infoWindow = new google.maps.InfoWindow({
+                  content: windowContent
+                });
 
-        google.maps.event.addListener(marker, 'click', () => {
-            infoWindow.open(map, marker);
-            });
+            google.maps.event.addListener(marker, 'click', () => {
+                infoWindow.open(map, marker);
+                });
 
-        bounds.extend(new google.maps.LatLng(geolocation));
+            bounds.extend(new google.maps.LatLng(geolocation));
 
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
+            map.center = bounds.getCenter();
+            map.fitBounds(bounds);
 
-        map.center = bounds.getCenter();
-        map.fitBounds(bounds);
+            map.mapTypes.set('map_style', styledMap);
+            map.setMapTypeId('map_style');
+
+          }
 
       });
 
@@ -70,3 +76,23 @@ function initMap() {
 $('#nav-icon').on('click', function () {
   $('#navbar').toggleClass('no-display');
 });
+
+function processForm(e) {
+    if (e.preventDefault) e.preventDefault();
+
+    var selectState = document.getElementById('state-select').value;
+
+    if (selectState !== "") {
+      initMap(selectState);
+      $('#navbar').toggleClass('no-display');
+    }
+
+    return false;
+}
+
+var form = document.getElementById('state-form');
+if (form.attachEvent) {
+    form.attachEvent("submit", processForm);
+} else {
+    form.addEventListener("submit", processForm);
+}
