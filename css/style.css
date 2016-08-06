@@ -45,7 +45,7 @@
 #selectors {
   position: absolute;
   top: 25%;
-  left: -5%;
+  left: -10%;
 }
 
 .clickable {
@@ -71,22 +71,29 @@
 }
 
 input[type=text] {
-  left: 40%;
-  width: 65%;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  height: 1.5em;
+  width: 50%;
 }
 
 input[type=submit] {
+  background-color: #58A5F5;
+  font-size: .5em;
   padding:5px;
-  border:2px solid #ccc;
+  border:0;
   -webkit-border-radius: 10px;
   border-radius: 10px;
+  outline: none;
+  height: 12%;
+  width: 12%;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
 
   #navbar {
-    height: 350px;
-    width: 175px;
+    height: 60%;
+    width: 95%;
   }
 
 }
