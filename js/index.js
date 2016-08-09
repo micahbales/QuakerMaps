@@ -26,6 +26,7 @@ function initMap(s) {
         var meetingName = meetings[key].name;
         var meetingAddress = meetings[key].address;
         var meetingState = meetings[key].state;
+        var meetingZip = meetings[key].zip;
         var meetingPhone = meetings[key].phone;
         var meetingWebsite = meetings[key].website;
         var meetingEmail = meetings[key].email;
@@ -34,7 +35,23 @@ function initMap(s) {
         var meetingStyle = meetings[key].style;
         var meetingBranch = meetings[key].branch;
 
-        if (selector === meetingState || selector === "any") {
+        var criterion;
+
+        if (selector !== "any" && selector.length === 2) {
+          criterion = meetingState;
+          console.log('state');
+        } else if (parseInt(selector) > 0) {
+          criterion = meetingZip;
+          console.log('zip');
+        } else if (selector.length > 2) {
+          criterion = meetingYM;
+          console.log(meetingYM);
+        } else {
+          criterion = "any";
+          console.log('any');
+        }
+
+        if (selector === criterion || selector === "any") {
           var marker = new google.maps.Marker({
             position: geolocation,
             map: map,
@@ -66,6 +83,8 @@ function initMap(s) {
 
     });
 
+    // if no markers, initMap("any");
+
   });
 
   var mapStyles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}];
@@ -77,22 +96,39 @@ $('#nav-icon').on('click', function () {
   $('#navbar').toggleClass('no-display');
 });
 
+var formID;
+
 function processForm(e) {
     if (e.preventDefault) e.preventDefault();
 
-    var selectState = document.getElementById('state-select').value;
 
-    if (selectState !== "") {
-      initMap(selectState);
-      $('#navbar').toggleClass('no-display');
+}
+
+$('button[type="submit"]').on('click', function (e) {
+console.log('works')
+  e.preventDefault;
+
+  if (this.id === "state-submit") {
+    formID = document.getElementById('state-select').value;
+    console.log('state-submit');
+  } else if (this.id === "zip-submit") {
+    formID = document.getElementById('zip-text').value;
+    if (!(parseInt(formID) < 99999 && formID.length === 5)) {
+      formID = "";
     }
+    console.log('zip-submit');
+  } else if (this.id === "ym-submit") {
+    formID = document.getElementById('ym-select').value;
+    console.log('ym-submit');
+  }
 
-    return false;
-}
+console.log(formID);
 
-var form = document.getElementById('state-form');
-if (form.attachEvent) {
-    form.attachEvent("submit", processForm);
-} else {
-    form.addEventListener("submit", processForm);
-}
+  if (formID !== "") {
+    initMap(formID);
+    $('#navbar').toggleClass('no-display');
+  }
+
+  return false;
+
+});
