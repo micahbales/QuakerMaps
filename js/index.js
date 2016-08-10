@@ -16,6 +16,8 @@ function initMap(s) {
       };
     var map = new google.maps.Map(mapDiv, mapOptions);
 
+    var totalMarkers;
+
     $.each(meetings, function (key, data) {
 
       var address = meetings[key]['address'].split(' ').join('+');
@@ -52,6 +54,7 @@ function initMap(s) {
         }
 
         if (selector === criterion || selector === "any") {
+          totalMarkers++;
           var marker = new google.maps.Marker({
             position: geolocation,
             map: map,
@@ -83,7 +86,9 @@ function initMap(s) {
 
     });
 
-    // if no markers, initMap("any");
+    if (totalMarkers < 1) {
+      initMap();
+    }
 
   });
 
