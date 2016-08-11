@@ -16,11 +16,10 @@ function initMap(s) {
       };
     var map = new google.maps.Map(mapDiv, mapOptions);
 
-    var totalMarkers;
-
     $.each(meetings, function (key, data) {
 
       var address = meetings[key]['address'].split(' ').join('+');
+      var totalMarkers;
 
       $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAZInx_2Z-qyDZXz2eMhSCd9xBLyeiAf7Q', function (locationData) {
 

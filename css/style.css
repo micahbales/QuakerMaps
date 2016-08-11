@@ -85,8 +85,8 @@ button[type=submit] {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   outline: none;
-  height: 12%;
-  width: 12%;
+  height: 8%;
+  width: 10%;
 }
 
 @media (max-width: 300px) {
