@@ -17,8 +17,11 @@ function initMap(s) {
         }
       };
     var map = new google.maps.Map(mapDiv, mapOptions);
+
     var attemptedPlots = 0;
+
     $.each(meetings, function (key, data) {
+
       attemptedPlots++;
       var totalMeetings = meetings.length;
       var totalMatch = 0;
@@ -44,19 +47,16 @@ function initMap(s) {
 
         if (selector !== "any" && selector.length === 2) {
           criterion = meetingState;
-          console.log('state');
         } else if (parseInt(selector) > 0) {
           criterion = meetingZip;
-          console.log('zip');
         } else if (selector.length > 2) {
           criterion = meetingYM;
-          console.log(meetingYM);
         } else {
           criterion = "any";
-          console.log('any');
         }
 
         if (selector === criterion || selector === "any") {
+
           totalMatch++;
 
           var marker = new google.maps.Marker({
@@ -107,29 +107,22 @@ var formID;
 
 function processForm(e) {
     if (e.preventDefault) e.preventDefault();
-
-
 }
 
 $('button[type="submit"]').on('click', function (e) {
-console.log('works')
+
   e.preventDefault;
 
   if (this.id === "state-submit") {
     formID = document.getElementById('state-select').value;
-    console.log('state-submit');
   } else if (this.id === "zip-submit") {
     formID = document.getElementById('zip-text').value;
     if (!(parseInt(formID) < 99999 && formID.length === 5)) {
       formID = "";
     }
-    console.log('zip-submit');
   } else if (this.id === "ym-submit") {
     formID = document.getElementById('ym-select').value;
-    console.log('ym-submit');
   }
-
-console.log(formID);
 
   if (formID !== "") {
     initMap(formID);
