@@ -4,8 +4,6 @@ function initMap(s) {
 
   var icon = 'mtg.png';
 
-  var totalMarkers = 0;
-
   $.getJSON('js/meetings.json', function (meetings) {
 
     var bounds = new google.maps.LatLngBounds();
@@ -18,13 +16,14 @@ function initMap(s) {
       };
     var map = new google.maps.Map(mapDiv, mapOptions);
 
-    var attemptedPlots = 0;
+    // var attemptedPlots = 0;
+    // var totalMeetings = meetings.length;
+    // var totalMatch = 0;
 
     $.each(meetings, function (key, data) {
 
-      attemptedPlots++;
-      var totalMeetings = meetings.length;
-      var totalMatch = 0;
+      // attemptedPlots++;
+
       var address = meetings[key]['address'].split(' ').join('+');
 
 
@@ -57,7 +56,7 @@ function initMap(s) {
 
         if (selector === criterion || selector === "any") {
 
-          totalMatch++;
+          // totalMatch++;
 
           var marker = new google.maps.Marker({
             position: geolocation,
@@ -86,11 +85,13 @@ function initMap(s) {
 
           }
 
-        if (totalMatch === 0 && totalMeetings === attemptedPlots) { initMap(); }
+
 
       });
 
     });
+
+    if (totalMatch === 0 && totalMeetings === attemptedPlots) { initMap(); }
 
   });
 
